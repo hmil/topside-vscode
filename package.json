@@ -1,0 +1,58 @@
+{
+    "name": "topside",
+    "displayName": "topside",
+    "description": "Topside templating language support",
+    "version": "0.0.1",
+    "publisher": "hmil",
+    "engines": {
+        "vscode": "^1.14.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:topside"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "topside",
+                "aliases": [
+                    "Topside",
+                    "TopSide"
+                ],
+                "extensions": [
+                    ".top.html"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "topside",
+                "scopeName": "source.topside.html",
+                "path": "./syntaxes/Topside.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.32",
+        "@types/node": "^6.0.40",
+        "cz-conventional-changelog": "^2.0.0",
+        "mocha": "^2.3.3",
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}

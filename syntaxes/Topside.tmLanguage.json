@@ -1,0 +1,98 @@
+{
+    "name": "Topside HTML",
+    "scopeName": "source.topside.html",
+    "fileTypes": [
+        "top.html"
+    ],
+    "uuid": "35e4efaf-daf7-4ed1-aa06-3178b53bd3c0",
+    "patterns": [
+        {
+            "include": "text.html.basic"
+        },
+        {
+            "name": "comment.line",
+            "match": "@--[\\s]*([\\s].+)?\\Z"
+        },
+        {
+            "name": "comment.block",
+            "begin": "@--\\(",
+            "end": "\\)",
+            "patterns": [{
+                "include": "#match-paren"
+            }]
+        },
+        {
+            "match": "@@",
+            "name": "constant.language"
+        },
+        {
+            "match": "(@)(import)\\s+([^(].*)$",
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "keyword.control"
+                },
+                "3": {
+                    "patterns": [{
+                        "include": "source.ts#import-export-declaration"
+                    }]
+                }
+            }
+        },
+        {
+            "match": "(@)(param)\\s+([^(].*)$",
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "keyword.control"
+                },
+                "3": {
+                    "patterns": [{
+                        "include": "source.ts#field-declaration"
+                    }]
+                }
+            }
+        },
+        {
+            "match": "(@)([a-z]*)[\\s]*([\\s][^(].*)?$",
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "keyword.control"
+                },
+                "3": {
+                    "patterns": [{
+                        "include": "source.ts#expression"
+                    }]
+                }
+            }
+        },
+        {
+            "begin": "(@)([a-z]*)[ \\t]*\\(",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "keyword.control"
+                }
+            },
+            "end": "\\)",
+            "patterns": [{
+                "include": "source.ts#expression"
+            }]
+        }
+    ],
+    "repository": {
+        "match-paren": {
+            "begin": "\\(",
+            "end": "\\)"
+        }
+    }
+}
