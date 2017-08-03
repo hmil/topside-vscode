@@ -2,7 +2,7 @@
     "name": "topside-vscode",
     "displayName": "Topside",
     "description": "Topside templating language support",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "publisher": "hmil",
     "engines": {
         "vscode": "^1.14.0"
@@ -44,7 +44,7 @@
     },
     "devDependencies": {
         "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
+        "@types/node": "^6.0.85",
         "cz-conventional-changelog": "^2.0.0",
         "mocha": "^2.3.3",
         "typescript": "^2.0.3",
@@ -56,7 +56,7 @@
         }
     },
     "dependencies": {
-        "topside": "^0.3.4",
+        "topside": "^0.5.1",
         "vscode-languageclient": "^3.3.0",
         "vscode-languageserver": "^3.3.0"
     }

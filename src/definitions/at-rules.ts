@@ -23,7 +23,7 @@ export const atRulesCompletions: CompletionItem[] = [
         documentation: "Repeats some markup for each item in an array."
     },
     {
-        label: "@for (i ; i < x ; i++)",
+        label: "@for (i ; i < N ; i++)",
         filterText: "forijk=0123456789;i<",
         kind: CompletionItemKind.Keyword,
         insertText: new SnippetString("for (${1:i} = ${2:0} ; $1 < ${3:10} ; $1++)\n\t$4\n@endfor"),
@@ -64,11 +64,13 @@ export const atRulesCompletions: CompletionItem[] = [
     {
         label: "@else",
         filterText: "else",
+        insertText: "else",
         kind: CompletionItemKind.Keyword
     },
     {
         label: "@endif",
         filterText: "endif",
+        insertText: "endif",
         kind: CompletionItemKind.Keyword
     },
     {
@@ -84,5 +86,46 @@ export const atRulesCompletions: CompletionItem[] = [
         kind: CompletionItemKind.Keyword,
         insertText: new SnippetString("param ${1:name}: ${2:type}"),
         documentation: "Defines an input parameter for this template."
+    },
+    {
+        label: "@section",
+        filterText: "section",
+        kind: CompletionItemKind.Keyword,
+        insertText: new SnippetString("section(${1:name})\n$2\n@${3:endsection}"),
+        documentation: "Define a section of content used to compose layouts."
+    },
+    {
+        label: "@yield",
+        filterText: "yield",
+        kind: CompletionItemKind.Keyword,
+        insertText: new SnippetString("yield(${1:name})"),
+        documentation: "Render a section of text"
+    },
+    {
+        label: "@parent",
+        filterText: "parent",
+        insertText: "parent",
+        kind: CompletionItemKind.Keyword,
+        documentation: "Use in a section to insert the parent of this section."
+    },
+    {
+        label: "@show",
+        filterText: "show",
+        insertText: "show",
+        kind: CompletionItemKind.Keyword,
+        documentation: "Use instead of @endsection to close and print a section."
+    },
+    {
+        label: "@endsection",
+        filterText: "endsection",
+        insertText: "endsection",
+        kind: CompletionItemKind.Keyword
+    },
+    {
+        label: "@extends",
+        filterText: "extends",
+        kind: CompletionItemKind.Keyword,
+        insertText: new SnippetString("extends ${1:name}"),
+        documentation: "Use some external view as the parent of this one. The top-level layout is defined by the parent and the child view should insert content using sections."
     }
 ]
